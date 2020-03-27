@@ -1,0 +1,29 @@
+jdk安装
+下载安装jdk ：http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-windows-x64.exe ；
+环境变量配置如下：新建JAVA_HOME，配置为D:\Tools\Java\jdk1.8.0_101
+编辑path，新增%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+新增CLASS_PATH，配置为.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+运行cmd，输入java -version，若正常出现版本信息，则标识jdk环境变量配置成功
+
+android sdk安装
+下载android sdk：https://dl.google.com/android/android-sdk_r24.4.1-windows.zip；
+解压缩至D:\Tools\android-sdk-windows；
+sdk环境变量配置：新建ANDROID_HOME，配置为D:\Tools\android-sdk-windows
+编辑path，新增%ANDROID_HOME%\platform-tools; %ANDROID_HOME%\tools;
+运行cmd，输入adb version，若正常出现版本信息，则表示android sdk环境变量配置成功
+
+nodejs安装
+最新稳定版v1.5.3 必须使用命令行安装；
+npm安装以及设置：下载安装nodejs：https://nodejs.org/download/release/v6.3.0/node-v6.3.0-x64.msi；
+配置npm的全局目录：修改nodejs安装目录\node_modules\npm.npmr文件如下：prefix = D:\Tools\nodejs\node_globalcache = D:\Tools\nodejs\node_global
+
+appium安装：运行cmd，输入：npm --registry http://registry.cnpmjs.org install -g appium
+等待安装，时间较长，耐心等待（一般会安装失败几次，多是由于网络不稳定导致，多安装几次即可，相关npm安装失败的解决方案地址：http://www.uedbox.com/npm-install-slow-solution/）；
+安装完成之后配置环境变量，编辑path，添加：D:\Tools\nodejs\node_global即可；
+运行cmd，输入：appium -v，若正常显示版本信息，则appium环境安装成功；
+
+appium-doctor安装：运行cmd，输入：npm --registry http://registry.cnpmjs.org install -g appium-doctor；
+等待安装完成；
+运行cmd，输入appium-doctor，若正常出现以下信息，则表明appium运行依赖环境全部安装成功，可以使用appium进行自动化测试
+
+
