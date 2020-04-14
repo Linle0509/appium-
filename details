@@ -26,4 +26,24 @@ appium-doctor安装：运行cmd，输入：npm --registry http://registry.cnpmjs
 等待安装完成；
 运行cmd，输入appium-doctor，若正常出现以下信息，则表明appium运行依赖环境全部安装成功，可以使用appium进行自动化测试
 
+精简版
+------------------------------------------------------------------------------------------------------------
+appium环境搭建：
+1、	安装jdk，配置java环境变量JAVA_HOME
+2、	安装Android sdk 配置环境变量ANDROID_HOME 将tool、platform-tools、build-tools\Android-4.4W加至Path
+3、	安装Nodejs配置环境变量Path
+4、	Appium-doctor安装： npm –registry http://registry.cnpmjs.org install –g appium-doctor (查询是否安装成功: cmd: appium-doctor) 将其Appdata\Roaming\npm\noed_modules\.bin加至Path
+5、	下载appium desktop 配置环境变量Appium_Home加至Path
+启动App：
+1、	USB连接， adb devices 查看设备
+2、查看安卓设备应用包名及入口activity：
+adb shell
+pm list package 找到所需APP包名 如微信:com.tencent.mm
+找到包所在位置： adb shell pm path com.tencent.mm  (package:/data/data/com.tencent.mm-2/base.apk)
+Pull至本地： adb pull /data/data/com.tencent.mm-2/base.apk C:/Users/admin/Desktop
+使用aapt（sdk自带工具 在sdk\builds-tools\目录下） cmd切换至该目录后：aapt dump badging C:/Users/admin/Desktop/base.apk  （launchable-activity：com.tencent.mm.ui.LaunchrUI）
+3、打开appium客户端启动服务
+4、start new session，配置plateformName、deviceName、appPackage、appActivity
+ start session
+
 
